@@ -15,6 +15,9 @@
       <v-divider></v-divider>
       <v-stepper-step :complete="step == 4" step="4"> Finished </v-stepper-step>
     </v-stepper-header>
+    <v-btn text @click="$store.dispatch('user/setUser', { usuario: 'Tássio' })">
+      change name
+    </v-btn>
 
     <v-stepper-items>
       <v-stepper-content step="1">
@@ -52,9 +55,15 @@ import CartProductList from "./CartProductList.vue";
 import CartPayment from "./CartPayment.vue";
 import CartAddress from "./CartAddress.vue";
 import CartFinish from "./CartFinish.vue";
+
 export default {
   name: "Cart",
-  components: { CartProductList, CartPayment, CartAddress, CartFinish },
+  components: {
+    CartProductList,
+    CartPayment,
+    CartAddress,
+    CartFinish,
+  },
   data() {
     return {
       step: 1,
