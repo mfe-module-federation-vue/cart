@@ -1,6 +1,7 @@
 <!-- Usingin stepper couse a strange behavior and a lot or erros-->
 <template>
   <v-stepper v-model="step">
+    <div>O que quer comprar hoje, {{ user.name.first }}?</div>
     <v-stepper-header>
       <v-stepper-step :complete="step > 1" step="1"> Cart </v-stepper-step>
 
@@ -15,9 +16,6 @@
       <v-divider></v-divider>
       <v-stepper-step :complete="step == 4" step="4"> Finished </v-stepper-step>
     </v-stepper-header>
-    <v-btn text @click="$store.dispatch('user/setUser', { usuario: 'Tássio' })">
-      change name
-    </v-btn>
 
     <v-stepper-items>
       <v-stepper-content step="1">
@@ -55,6 +53,7 @@ import CartProductList from "./CartProductList.vue";
 import CartPayment from "./CartPayment.vue";
 import CartAddress from "./CartAddress.vue";
 import CartFinish from "./CartFinish.vue";
+import emitters from "store/emitters";
 
 export default {
   name: "Cart",
@@ -65,9 +64,7 @@ export default {
     CartFinish,
   },
   data() {
-    return {
-      step: 1,
-    };
+    return { user: emitters.helpers.userData(), step: 1 };
   },
   methods: {
     next() {
@@ -76,6 +73,15 @@ export default {
     prev() {
       this.step--;
     },
+  },
+  mounted() {
+    emitters.helpers.listen(emitters.EVENT_KEYS.USER, () =>
+      console.log(
+        "%c listen - Cart: ",
+        "color: #bada55;",
+        (this.user = emitters.helpers.userData())
+      )
+    );
   },
 };
 </script>
