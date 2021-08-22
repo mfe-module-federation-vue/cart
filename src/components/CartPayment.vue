@@ -112,7 +112,7 @@
             </div>
           </div>
           <div class="card-item__side -back">
-             <div class="card-item__cover">
+            <div class="card-item__cover">
               <img class="card-item__bg" />
             </div>
             <div class="card-item__band"></div>
@@ -125,28 +125,28 @@
       </div>
       <div class="card-form__inner">
         <div class="card-input">
-          <label for="cardNumber" class="card-input__label">Card Number</label>
-          <input
-            type="text"
+          <DSInput
+            label="Card Number"
+            placeholder="0000 0000 0000 0000"
             id="cardNumber"
-            class="card-input__input"
             v-model="cardNumber"
             v-on:focus="focusInput"
             v-on:blur="blurInput"
             data-ref="cardNumber"
+            ref="cardNumber"
             autocomplete="off"
           />
         </div>
         <div class="card-input">
-          <label for="cardName" class="card-input__label">Card Holders</label>
-          <input
-            type="text"
+          <DSInput
+            label="Card Holders"
+            placeholder="Seu nome"
             id="cardName"
-            class="card-input__input"
             v-model="cardName"
             v-on:focus="focusInput"
             v-on:blur="blurInput"
             data-ref="cardName"
+            ref="cardName"
             autocomplete="off"
           />
         </div>
@@ -219,9 +219,13 @@
 </template>
 
 <script>
+import DSInput from "ds/DSInput";
+
 // THis code is from Amit Mondal's code pen at https://codepen.io/mondal10/pen/vYYZVKj?editors=0010
 export default {
   name: "CartPayment",
+  components: { DSInput },
+
   data() {
     return {
       currentCardBackground: Math.floor(Math.random() * 25 + 1), // just for fun :D
@@ -310,10 +314,10 @@ export default {
 }
 
 .card-form {
- margin: auto;
-    width: 100%;
-    column-gap: 20px;
-    display: flex;
+  margin: auto;
+  width: 100%;
+  column-gap: 20px;
+  display: flex;
 }
 @media screen and (max-width: 576px) {
   .card-form {
@@ -873,5 +877,4 @@ export default {
   transform: translateX(-10px) rotate(45deg);
   pointer-events: none;
 }
-
 </style>

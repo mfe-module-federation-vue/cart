@@ -14,15 +14,20 @@
     </v-list-item-content>
 
     <v-list-item-action>
-      <v-btn icon>
+      <DSButton icon>
         <v-icon>mdi-pencil</v-icon>
-      </v-btn>
+      </DSButton>
     </v-list-item-action>
   </v-list-item>
 </template>
 <script>
+import DSButton from "ds/DSButton";
+
 export default {
   name: "CartProduct",
+  components: {
+    DSButton,
+  },
   props: ["index"],
 };
 </script>
