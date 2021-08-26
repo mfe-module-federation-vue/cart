@@ -10,10 +10,11 @@
     "start": "vue-cli-service build --mode other && http-server -c-1 -p 3001 ./dist"
   },
   "dependencies": {
+    "@mfe-module-federation-vue/dealful-package": "^0.0.2",
     "core-js": "^3.6.5",
+    "http-server": "^0.12.3",
     "vue": "^2.6.11",
     "vuetify": "^2.4.0",
-    "http-server": "^0.12.3",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
