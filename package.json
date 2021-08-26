@@ -1,5 +1,5 @@
 {
-  "name": "@microfrontend-vue/cart",
+  "name": "@mfe-module-federation-vue/cart",
   "version": "0.1.0",
   "private": true,
   "scripts": {

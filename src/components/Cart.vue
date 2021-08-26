@@ -20,23 +20,23 @@
       <v-stepper-content step="1">
         <CartProductList />
         <v-card-actions class="justify-end">
-          <v-btn color="primary" @click="next"> Next </v-btn>
+          <DSButton @click="next"> Next </DSButton>
         </v-card-actions>
       </v-stepper-content>
 
       <v-stepper-content step="2">
         <CartAddress />
         <v-card-actions class="justify-end">
-          <v-btn text @click="prev"> Previous </v-btn>
-          <v-btn color="primary" @click="next"> Next </v-btn>
+          <DSButton text @click="prev"> Previous </DSButton>
+          <DSButton @click="next"> Next </DSButton>
         </v-card-actions>
       </v-stepper-content>
 
       <v-stepper-content step="3">
         <CartPayment />
         <v-card-actions class="justify-end">
-          <v-btn text @click="prev"> Previous </v-btn>
-          <v-btn color="primary" @click="next"> Finished </v-btn>
+          <DSButton text @click="prev"> Previous </DSButton>
+          <DSButton @click="next"> Finished </DSButton>
         </v-card-actions>
       </v-stepper-content>
 
@@ -52,6 +52,7 @@ import CartProductList from "./CartProductList.vue";
 import CartPayment from "./CartPayment.vue";
 import CartAddress from "./CartAddress.vue";
 import CartFinish from "./CartFinish.vue";
+import DSButton from "ds/DSButton";
 
 export default {
   name: "Cart",
@@ -60,6 +61,7 @@ export default {
     CartPayment,
     CartAddress,
     CartFinish,
+    DSButton
   },
   data() {
     return { step: 1 };
