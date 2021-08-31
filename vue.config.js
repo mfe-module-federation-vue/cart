@@ -13,7 +13,6 @@ module.exports = {
           "./Cart": "./src/components/Cart",
         },
         remotes: {
-          root: process.env.REMOTE_ROOT,
           ds: process.env.REMOTE_DS,
         },
         shared: {
