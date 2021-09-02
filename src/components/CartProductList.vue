@@ -9,7 +9,7 @@
 
 <script>
 import CartProduct from "./CartProduct.vue";
-import { cart } from "../dealful";
+import { cart } from "../services/cart.service";
 
 export default {
   name: "CartProductList",
