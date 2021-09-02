@@ -20,9 +20,6 @@ export default {
   }),
   mounted() {
     this.cart = cart();
-    cartEmitter.on(EVENT_KEYS.CART, (newCartData) => {
-      this.cart = newCartData();
-    });
   },
 };
 </script>
