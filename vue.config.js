@@ -11,6 +11,7 @@ module.exports = {
         filename: "remoteEntry.js",
         exposes: {
           "./Cart": "./src/components/Cart",
+          "./CartIcon": "./src/components/CartIcon",
         },
         remotes: {
           ds: process.env.REMOTE_DS,

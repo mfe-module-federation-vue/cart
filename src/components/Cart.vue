@@ -18,6 +18,11 @@
 
     <v-stepper-items>
       <v-stepper-content step="1">
+        <v-btn text>
+          <v-badge :content="1" :value="2" color="green" overlap>
+            <v-icon> mdi-cart </v-icon>
+          </v-badge>
+        </v-btn>
         <CartProductList />
         <v-card-actions class="justify-end">
           <DSButton @click="next"> Next </DSButton>
@@ -61,7 +66,7 @@ export default {
     CartPayment,
     CartAddress,
     CartFinish,
-    DSButton
+    DSButton,
   },
   data() {
     return { step: 1 };

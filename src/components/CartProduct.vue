@@ -3,12 +3,12 @@
     <v-list-item-avatar color="grey darken-1"> </v-list-item-avatar>
 
     <v-list-item-content>
-      <v-list-item-title>Product {{ index }}</v-list-item-title>
+      <v-list-item-title>{{ product.name }}</v-list-item-title>
       <v-list-item-subtitle class="text-right px-2">
-        <strong> 8un </strong>
+        <strong> {{ product.quantity }}un </strong>
         <span> | </span>
         <h2>
-          <em><small>R$</small> 1.000,99</em>
+          <em><small>R$</small> {{ totalPrice }}</em>
         </h2>
       </v-list-item-subtitle>
     </v-list-item-content>
@@ -28,7 +28,14 @@ export default {
   components: {
     DSButton,
   },
-  props: ["index"],
+  props: ["index", "product"],
+  computed: {
+    totalPrice() {
+      return Number(
+        this.product.quantity * parseFloat(this.product.unitPrice)
+      ).toFixed(2);
+    },
+  },
 };
 </script>
 
