@@ -17,11 +17,12 @@ export const addToCart = (product) => {
   let cartData;
   try {
     cartData = cart() || { products: [] };
-    if (!cartData?.products) {
-      cartData.products = [];
-    }
-    cartData.products.push(product);
-    setCart(cartData);
+    const hasAlready = !!cartData?.products?.find(
+      (cart) => cart.name === product.name
+    );
+
+    !hasAlready && cartData.products.push(product);
+    !hasAlready && setCart(cartData);
   } catch (err) {
     console.log(err);
   }
